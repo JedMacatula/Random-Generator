@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<fstream>
+
+using namespace std;
+
+int main()
+{
+	ofstream outs;
+	outs.open("image.html");
+	outs << "<html>" << endl;
+	outs << "<body>" << endl;
+	outs << "<svg height=\"1000\" width=\1000\">" << endl;
+
+	int cx, cy, r, stroke, strokeWidth, fill, red, green, blue, red2, green2, blue2;
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		cx = rand() % 1000;
+		cy = rand() % 1000;
+		r = rand() % 100;
+		red = rand() % 256;
+		green = rand() % 256;
+		blue = rand() % 256; 
+		red2 = rand() % 256;
+		green2 = rand() % 256;
+		blue2 = rand() % 256;
+		stroke = rand() % 16;
+		strokeWidth = rand() % 20;
+		outs << "<circle cx=\"" << cx << "\" cy=\"" << cy << "\" r=\"" << r << "\" stroke=\"rgb(" << red2 << "," << green2 << "," << blue2 << ")\"" "stroke-Width=\"" << strokeWidth << "\" fill=\"rgb(" << red << "," << green << "," << blue << ")\";/>" << endl;
+	}
+
+	outs << "</svg>" << endl;
+	outs << "</body>" << endl;
+	outs << "</html>";
+
+	outs.close();
+
+	return 0;
+}
